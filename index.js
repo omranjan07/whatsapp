@@ -1,7 +1,3 @@
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 3030;
-
 const { Client , LocalAuth} = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const axios = require('axios');
@@ -89,6 +85,4 @@ client.on('message',  async message => {
 
 client.initialize();
 
-app.listen(PORT, () => {
-console.log(`server started on port ${PORT}`);
-});
+
