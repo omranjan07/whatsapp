@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+// Serve static files from the 'assets' directory
+app.use("/", express.static(path.join(__dirname, '../client/assets')));
 const PORT = process.env.PORT || 10000;
 const { Client , LocalAuth} = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
