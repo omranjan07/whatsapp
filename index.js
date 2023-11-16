@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 10000;
 const { Client , LocalAuth} = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const axios = require('axios');
