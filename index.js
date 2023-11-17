@@ -1,17 +1,5 @@
 const express = require("express");
 const app = express();
-app.get("/", (req, res) => {
-  res.send("Hello, World!"); // or render your HTML file here
-});
-app.use((req, res, next) => {
-  res.status(404).send("Not Found");
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Internal Server Error");
-});
 const PORT = process.env.PORT || 3000; // Use 3000 as the default port if PORT is not set
 
 const { Client , LocalAuth} = require('whatsapp-web.js');
@@ -100,8 +88,18 @@ client.on('message',  async message => {
 
 
 client.initialize();
+app.get("/", (req, res) => {
+    res.send("Hello, World!"); // or render your HTML file here
+  });
+  app.use((req, res, next) => {
+    res.status(404).send("Not Found");
+  });
+  
+  // Error handling middleware
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Internal Server Error");
+  });
 app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
+console.log(`server started on port ${PORT}`);
 });
-
-
